@@ -69,12 +69,18 @@ const notifications = {
 	phone: {
 		availableCarriers: new Map([
 			['att', 'txt.att.net'],
+			['bell', 'txt.bell.ca'],
+			['fido', 'fido.ca'],
 			['google', 'msg.fi.google.com'],
+			['koodo', 'msg.koodomobile.com'],
 			['mint', 'mailmymobile.net'],
+			['rogers', 'pcs.rogers.com'],
 			['sprint', 'messaging.sprintpcs.com'],
 			['telus', 'msg.telus.com'],
 			['tmobile', 'tmomail.net'],
-			['verizon', 'vtext.com']
+			['verizon', 'vtext.com'],
+			['virgin', 'vmobl.com'],
+			['virgin-ca', 'vmobile.ca']
 		]),
 		carrier: envOrString(process.env.PHONE_CARRIER),
 		number: envOrString(process.env.PHONE_NUMBER)
@@ -82,6 +88,7 @@ const notifications = {
 	playSound: envOrString(process.env.PLAY_SOUND),
 	pushBulletApiKey: envOrString(process.env.PUSHBULLET),
 	pushover: {
+		priority: envOrString(process.env.PUSHOVER_PRIORITY),
 		token: envOrString(process.env.PUSHOVER_TOKEN),
 		username: envOrString(process.env.PUSHOVER_USER)
 	},
@@ -113,7 +120,9 @@ const page = {
 
 const store = {
 	country: envOrString(process.env.COUNTRY, 'usa'),
+	microCenterLocation: envOrString(process.env.MICROCENTER_LOCATION, 'web'),
 	showOnlyBrands: envOrArray(process.env.SHOW_ONLY_BRANDS),
+	showOnlyModels: envOrArray(process.env.SHOW_ONLY_MODELS),
 	showOnlySeries: envOrArray(process.env.SHOW_ONLY_SERIES, ['3070', '3080', '3090']),
 	stores: envOrArray(process.env.STORES, ['nvidia'])
 };
